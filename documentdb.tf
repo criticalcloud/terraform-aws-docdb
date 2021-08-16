@@ -37,7 +37,7 @@ resource "aws_docdb_cluster_instance" "cluster_instances" {
   tags = merge(
     var.tags,
     {
-      "Name" = local.repl_name
+      "Name" = "${var.cluster_identifier}-${sum([count.index, 1])}"
     },
   )
   
