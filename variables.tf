@@ -27,11 +27,6 @@ variable "cluster_identifier" {
   default = "mongo"
 }
 
-variable "replica_identifier" {
-    type = string
-    default = "mongo_rpl"
-}
-
 variable "engine_version" {
     type = string
     default = "4.0.0"
