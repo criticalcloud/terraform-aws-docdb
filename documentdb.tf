@@ -28,7 +28,7 @@ resource "aws_docdb_cluster" "docdb" {
 
 ## MONGODB INSTANCES
 resource "aws_docdb_cluster_instance" "cluster_instances" {
-  identifier         = "${var.cluster_identifier}-${sum([count.index, 1])}"
+  identifier         = var.repl_identifier != "mongo_repl" ? var.repl_identifier : "${var.cluster_identifier}-${sum([count.index, 1])}"
   cluster_identifier = aws_docdb_cluster.docdb.id
   instance_class     = var.instance_class
   preferred_maintenance_window = var.preferred_maintenance_window
@@ -42,20 +42,4 @@ resource "aws_docdb_cluster_instance" "cluster_instances" {
   )
   
   count              = var.cluster_instances_count
-}
-
-## PARAMETER GROUP
-resource "aws_docdb_cluster_parameter_group" "docdb_pg" {
-  family      = var.pg_family
-  name        = local.pg_name
-  description = var.pg_description
-
-
-  dynamic "parameter" {
-    for_each = var.parameters
-    content {
-      name         = parameter.value.name
-      value        = parameter.value.value
-    }
-  }
 }

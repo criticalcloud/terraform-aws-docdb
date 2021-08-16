@@ -27,6 +27,11 @@ variable "cluster_identifier" {
   default = "mongo"
 }
 
+variable "repl_identifier" {
+  type = string
+  default = "mongo_repl"
+}
+
 variable "engine_version" {
     type = string
     default = "4.0.0"
