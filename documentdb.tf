@@ -24,6 +24,8 @@ resource "aws_docdb_cluster" "docdb" {
     },
   )
 
+  enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
+
 }
 
 ## MONGODB INSTANCES
