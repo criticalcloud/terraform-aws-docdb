@@ -110,5 +110,5 @@ variable "promotion_tier" {
 
 variable "enabled_cloudwatch_logs_exports" {
   type = list
-  deafult = []
+  default = []
 }
