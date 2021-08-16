@@ -72,11 +72,6 @@ variable "skip_final_snapshot" {
     default = false
 }
 
-
-variable "db_vpc_id" {
-  type = string
-}
-
 variable "parameter_group_name" {
   type = string
   default = "pg"
