@@ -30,7 +30,7 @@ resource "aws_docdb_cluster" "docdb" {
 
 ## MONGODB INSTANCES
 resource "aws_docdb_cluster_instance" "cluster_instances" {
-  identifier         = var.repl_identifier != "mongo_repl" ? var.repl_identifier : "${var.cluster_identifier}-${sum([count.index, 1])}"
+  identifier         = var.repl_identifier != "mongo-repl" ? var.repl_identifier : "${var.cluster_identifier}-${sum([count.index, 1])}"
   cluster_identifier = aws_docdb_cluster.docdb.id
   instance_class     = var.instance_class
   preferred_maintenance_window = var.preferred_maintenance_window
