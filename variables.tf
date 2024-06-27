@@ -11,9 +11,6 @@ variable "db_subnet_group_name" {
 variable "tags" {
   description = "A mapping of tags to assign to the resource"
   type        = map(string)
-  default     = {
-    "Realm" = "asgard"
-  }
 }
 
 variable "vpc_security_group_ids" {
@@ -34,7 +31,7 @@ variable "repl_identifier" {
 
 variable "engine_version" {
     type = string
-    default = "4.0.0"
+    default = "5.0.0"
 }
 
 variable "username" {
@@ -44,7 +41,7 @@ variable "username" {
 
 variable "backup_retention_period" {
     type = number
-    default = 7
+    default = 0
 }
 
 variable "preferred_backup_window" {
@@ -64,12 +61,12 @@ variable "storage_encrypted" {
 
 variable "deletion_protection" {
     type = bool
-    default = true
+    default = false
 }
 
 variable "skip_final_snapshot" {
     type = bool
-    default = false
+    default = true
 }
 
 variable "parameter_group_name" {
@@ -89,7 +86,7 @@ variable "instance_class" {
 
 variable "pg_family" {
     type = string
-    default = "docdb4.0"
+    default = "docdb5.0"
 }
 
 variable "pg_description" {
