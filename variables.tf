@@ -41,7 +41,7 @@ variable "username" {
 
 variable "backup_retention_period" {
     type = number
-    default = 0
+    default = 1
 }
 
 variable "preferred_backup_window" {
